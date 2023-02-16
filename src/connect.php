@@ -1,12 +1,16 @@
 <?php
-
+function OpenConnection()
+{
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "root";
-$dbname = "studydb";
+$db = "studydb";
+$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 
-if (!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)) 
-{
-    die("faled to connect :(");
+return $conn;
 }
+function CloseConnection($conn)
+ {
+ $conn -> close();
+ }
 ?>
