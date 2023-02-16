@@ -5,6 +5,9 @@ include("src/connect.php");
 include("src/functions.php");
 
 function login() {
+
+    echo "<script>console.log('Login starting');</script>";
+
     $emailAddress = $_POST['email'];
     $password = $_POST['password'];
 
@@ -32,6 +35,8 @@ function login() {
 }
 
 if (isset($_POST['submit'])) {
+    echo "<script>console.log('Submit is clicked');</script>";
+
     login();
 }
 
