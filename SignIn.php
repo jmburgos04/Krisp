@@ -6,18 +6,19 @@ function login()
     echo "<script>console.log('Login success' );</script>";
     $emailAddress = $_POST['email'];
     $password = $_POST['password'];
-    echo "<script>console.log('" . $emailAddress . "');</script>";
-    echo "<script>console.log('" . $password . "');</script>";
+    
     $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
     $conn = OpenConnection();
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 1) {
         echo "<script>console.log('Duplicate entry found');</script>";
+        return;
     }
 
     if (mysqli_num_rows($result) < 1) {
         echo "<script>console.log('No entry found');</script>";
+        return;
     }
 
     $row = $result->fetch_assoc();
@@ -25,6 +26,9 @@ function login()
         echo "<script>console.log('Wrong password');</script>";
         return;
     }
+
+    session_start();
+    $_SESSION["email"] = $emailAddress;
 
     header("location: index.php");
 
