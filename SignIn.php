@@ -23,7 +23,7 @@ function login()
     $row = $result->fetch_assoc();
     if ($row['password'] != $password) {
         echo "<script>console.log('Wrong password');</script>";
-        throw new Exception('Wrong password');
+        return;
     }
 
     header("location: index.php");
