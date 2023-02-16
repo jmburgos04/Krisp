@@ -56,19 +56,20 @@ echo "<script>console.log('Test');</script>";
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>login</title>
+    <script src="src/main.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <form class="form" id="login" method ="post" action="">
+    
+        <form class="form" id="login" method="post" action="">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Email" name ="email">
+                <input type="text" class="form__input" autofocus placeholder="Email" name="email">
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Password" name ="password">
+                <input type="password" class="form__input" autofocus placeholder="Password" name="password">
                 <div class="form__input-error-message"></div>
             </div>
             <input class="form__button" type="submit" value="Login" name="submit" />
@@ -79,8 +80,8 @@ echo "<script>console.log('Test');</script>";
                 <a href="SignUp.php" class="form__link">Create account</a>
             </p>
         </form>
-    </div>
-    <script src="src/main.js"></script>
+    
+    
 </body>
 
 </html>
