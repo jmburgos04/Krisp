@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" class="form__input" autofocus placeholder="Password" name ="password">
                 <div class="form__input-error-message"></div>
             </div>
-            <button class="form__button" type="submit" value="Login" name="submit">Continue</button>
+            <input class="form__button" type="submit" value="Login" name="submit">Continue</input>
             <p class="form__text">
                 <a href="#" class="form__link">Forgot your password?</a>
             </p>
