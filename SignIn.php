@@ -67,7 +67,7 @@ echo "<script>console.log('Test');</script>";
 
 <body>
     
-        <form class="form" id="login" method="post" action="">
+        <form class="form" id="login" method="post">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
@@ -78,7 +78,7 @@ echo "<script>console.log('Test');</script>";
                 <input type="password" class="form__input" autofocus placeholder="Password" name="password">
                 <div class="form__input-error-message"></div>
             </div>
-            <input class="form__button" type="submit" value="Login" name="submit" />
+            <button class="form__button" type="submit" value="Login" name="submit" />
             <p class="form__text">
                 <a href="#" class="form__link">Forgot your password?</a>
             </p>
