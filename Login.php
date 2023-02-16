@@ -16,6 +16,10 @@ function login()
         echo "<script>console.log('Duplicate entry found');</script>";
     }
 
+    if (mysqli_num_rows($result) < 1) {
+        echo "<script>console.log('No entry found');</script>";
+    }
+
     $row = $result->fetch_assoc();
     if ($row['password'] != $password) {
         echo "<script>console.log('Wrong password');</script>";
