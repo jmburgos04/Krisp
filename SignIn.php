@@ -25,7 +25,7 @@ function login()
         echo "<script>console.log('Wrong password');</script>";
     }
 
-    header("location: index.php")
+    header("location: index.php");
 
 }
 
