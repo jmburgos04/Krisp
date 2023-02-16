@@ -8,16 +8,20 @@ function login()
     $password = $_POST['password'];
     echo "<script>console.log('" . $emailAddress . "');</script>";
     echo "<script>console.log('" . $password . "');</script>";
-    $query = "SELECT * from users WHERE emailAddress = '$emailAddress' limit 1";
+    $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
     $conn = OpenConnection();
     $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) > 1) {
+        echo "<script>console.log('Duplicate entry found');</script>";
+    }
+
     $row = $result->fetch_assoc();
-    echo "<script>console.log('". $row['user_id'] . "');</script>";
-    echo "<script>console.log('". $row['firstName'] . "');</script>";
-    echo "<script>console.log('". $row['lastName'] . "');</script>";
-    echo "<script>console.log('". $row['emailAddress'] . "');</script>";
-    echo "<script>console.log('". $row['mobileNumber'] . "');</script>";
-    echo "<script>console.log('". $row['password'] . "');</script>";
+    if ($row['password'] != $password) {
+        echo "<script>console.log('Wrong password');</script>";
+    }
+
+
 }
 
 if (isset($_POST['submit'])) {
