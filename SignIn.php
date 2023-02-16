@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="container">
-        <form action="" class="form" id="login" method ="post" action="SignIn.php">
+        <form class="form" id="login" method ="post">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" class="form__input" autofocus placeholder="Password" name ="password">
                 <div class="form__input-error-message"></div>
             </div>
-            <input class="form__button" type="submit" value="Login" name="submit">Continue</input>
+            <input class="form__button" type="submit" value="Login" name="submit" />
             <p class="form__text">
                 <a href="#" class="form__link">Forgot your password?</a>
             </p>
