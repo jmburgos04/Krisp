@@ -74,7 +74,10 @@ if (isset($_POST['submit'])) {
     echo "<script>console.log('Submit is clicked');</script>";
 
     login();
-}
+} 
+
+echo "<script>console.log('Test');</script>";
+
 
 ?>
 
