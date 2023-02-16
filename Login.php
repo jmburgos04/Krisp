@@ -12,7 +12,12 @@ function login()
     $conn = OpenConnection();
     $result = mysqli_query($conn, $query);
     $row = $result->fetch_assoc();
-    echo "<script>console.log('". $row . "');</script>";
+    echo "<script>console.log('". $row['user_id'] . "');</script>";
+    echo "<script>console.log('". $row['firstName'] . "');</script>";
+    echo "<script>console.log('". $row['lastName'] . "');</script>";
+    echo "<script>console.log('". $row['emailAddress'] . "');</script>";
+    echo "<script>console.log('". $row['mobileNumber'] . "');</script>";
+    echo "<script>console.log('". $row['password'] . "');</script>";
 }
 
 if (isset($_POST['submit'])) {
