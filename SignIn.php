@@ -1,8 +1,8 @@
 <?php
-session_start();
-include("src/connect.php");
+// session_start();
+// include("src/connect.php");
 
-include("src/functions.php");
+// include("src/functions.php");
 
 function login() {
 
@@ -11,27 +11,27 @@ function login() {
     $emailAddress = $_POST['email'];
     $password = $_POST['password'];
 
-    if (!empty($emailAddress) && !empty($password)) {
-        $query = "SELECT * from users WHERE emailAddress = '$emailAddress' limit 1";
-        echo "<script>console.log('". $query . "');</script>";
-        $result = mysqli_query($con, $query);
+    // if (!empty($emailAddress) && !empty($password)) {
+    //     $query = "SELECT * from users WHERE emailAddress = '$emailAddress' limit 1";
+    //     echo "<script>console.log('". $query . "');</script>";
+    //     $result = mysqli_query($con, $query);
 
-        if ($result) {
-            if ($result && mysqli_num_rows($result) > 0) {
-                $user_data = mysqli_fetch_assoc($result);
+    //     if ($result) {
+    //         if ($result && mysqli_num_rows($result) > 0) {
+    //             $user_data = mysqli_fetch_assoc($result);
 
-                if ($user_data['password'] === $password) {
+    //             if ($user_data['password'] === $password) {
 
-                    $_SESSION['user_id'] = $user_data['user_id'];
-                    header("Location: Krisp.html");
-                    die;
-                }
-            }
-        }
-        /* error message dapat */
-    } else {
-        echo "wrong username or password!";
-    }
+    //                 $_SESSION['user_id'] = $user_data['user_id'];
+    //                 header("Location: Krisp.html");
+    //                 die;
+    //             }
+    //         }
+    //     }
+    //     /* error message dapat */
+    // } else {
+    //     echo "wrong username or password!";
+    // }
 }
 
 if (isset($_POST['submit'])) {
