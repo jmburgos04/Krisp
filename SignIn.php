@@ -3,14 +3,10 @@ session_start();
 include("src/connect.php");
 
 include("src/functions.php");
-echo "<script>console.log('asdf' );</script>";
-echo "<script>console.log('". $_SERVER['REQUEST_METHOD'] . "');</script>";
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+function login() {
     $emailAddress = $_POST['email'];
     $password = $_POST['password'];
-    
-    echo "<script>console.log('". $emailAddress . "');</script>";
-    echo "<script>console.log('". $password . "');</script>";
 
     if (!empty($emailAddress) && !empty($password)) {
         $query = "SELECT * from users WHERE emailAddress = '$emailAddress' limit 1";
@@ -35,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 
+if (isset($_POST['submit'])) {
+    login();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <body>
     <div class="container">
-        <form action="" class="form" id="login" method ="post">
+        <form action="" class="form" id="login" method ="post" action="SignIn.php">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <input type="password" class="form__input" autofocus placeholder="Password" name ="password">
                 <div class="form__input-error-message"></div>
             </div>
-            <button class="form__button" type="submit" value="Login">Continue</button>
+            <button class="form__button" type="submit" value="Login" name="submit">Continue</button>
             <p class="form__text">
                 <a href="#" class="form__link">Forgot your password?</a>
             </p>
