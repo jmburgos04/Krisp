@@ -8,7 +8,7 @@ $conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 $user = clone $row;
-echo "<script>console.log(" . $user["firstName"] . ")</script>"
+echo "<script>console.log(" . $user["firstName"] . ")</script>";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $firstName = $_POST['firstName'];
