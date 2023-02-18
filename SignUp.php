@@ -16,9 +16,13 @@
                 $user_id = random_num(20);
                 $query = "INSERT into users (user_id, firstName, lastName, mobileNumber, emailAddress, password) VALUES ('$user_id', '$firstName', '$lastName', '$mobileNumber', '$emailAddress', '$password')";
                 $conn = OpenConnection();
-                mysqli_query($conn, $query);
+                try {
+                    $result = mysqli_query($conn, $query);
+                    header("Location: SignIn.php");
+                } catch(Exception $e) {
+                    $error_message = "Saving failed";
+                }
                 
-                header("Location: SignIn.php");
                 die;
             } else {
                 header("Location: SignUp.php?error=invalid");
@@ -48,7 +52,13 @@
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
                 <input type="text" id="signupUsername" name="firstName" class="form__input" autofocus placeholder="First Name">
-                <div class="form__input-error-message"></div>
+                <div class="form__input-error-message">
+                    <?php
+                        if (isset($error_message)) {
+                            echo $error_message;
+                        }
+                    ?>
+                </div>
             </div>
             <div class="form__input-group">
                 <input type="text" id="signupUsername" name="lastName" class="form__input" autofocus placeholder="Last Name">
