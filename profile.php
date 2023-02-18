@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 echo "<script>console.log('Debug Objects: " . $_SESSION["email"] . "' );</script>"
 ?>
 <!DOCTYPE html>
