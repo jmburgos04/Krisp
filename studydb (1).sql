@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2023 at 07:26 AM
+-- Generation Time: Feb 18, 2023 at 03:30 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -74,10 +74,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `mobileNumber`, `emailAddress`, `password`) VALUES
 (1, 669980678545, 'Karl Given', 'Reginaldo', '2147483647', 'pikuradezu@gmail.com', 'hahatesting'),
-(2, 1403543321, 'Fausto', 'Reginaldo', '2147483647', 'fausto@gmail.com', 'hahahahah'),
-(4, 11656, 'Matthew', 'Burgos', '09202784482', 'jhonmatthewm@gmail.com', 'TESTING'),
-(5, 70457013052528, 'Joshua', 'Burgos', '09771986824', 'boybalita10@gmail.com', 'matthew'),
-(6, 516094, 'Joshua', 'Bucad', '09187025351', 'matthew@gmail.com', 'matt');
+(8, 267029705354, 'asdf', 'asdf', '09454773754', 'boybalita10@gmail.com', 'xiBK5w==');
 
 --
 -- Indexes for dumped tables
@@ -111,7 +108,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
