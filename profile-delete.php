@@ -1,14 +1,26 @@
 <?php
 include("src/connect.php");
 session_start();
-if(!isset($_SESSION["email"])) {
-    header("Location: SignIn.php");
-}
+
+if (!isset($_SESSION["email"])){
+    header("location: SignIn.php");
+  }
+
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
+
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    
+    $query = "DELETE FROM `users` WHERE `users`.`emailAddress` = '$emailAddress'";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        session_destroy();
+        header("location: SignIn.php");
+    }
+}
 
 ?>
 <!DOCTYPE html>
