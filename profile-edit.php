@@ -7,6 +7,7 @@ $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
+$user = $row;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $firstName = $_POST['firstName'];
@@ -15,7 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query = "UPDATE `users` SET `firstName` = '$firstName', `lastName` = '$lastName' , `mobileNumber` = '$mobileNumber' WHERE `users`.`emailAddress` = '$emailAddress'";
     $result = mysqli_query($conn, $query);
-    
+    if ($result) {
+        $user["firstName"] = $firstName;
+        $user["lastName"] = $lastName;
+        $user["mobileNumber"] = $mobileNumber;
+    }
 
 } 
 
@@ -43,19 +48,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> First Name</th>
-                        <td><input type="text" class="form__input" name="firstName" placeholder="<?php echo $row["firstName"] ?>"></td>
+                        <td><input type="text" class="form__input" name="firstName" placeholder="<?php echo $user["firstName"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> Last Name</th>
-                        <td><input type="text" class="form__input" name="lastName" placeholder="<?php echo $row["lastName"] ?>"></td>
+                        <td><input type="text" class="form__input" name="lastName" placeholder="<?php echo $user["lastName"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile Number</th>
-                        <td><input type="tel" class="form__input" name="mobileNumber" placeholder="<?php echo $row["mobileNumber"] ?>"></td>
+                        <td><input type="tel" class="form__input" name="mobileNumber" placeholder="<?php echo $user["mobileNumber"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-envelope"></i> Email Address</th>
-                        <td><input type="email" class="form__input" name="emailAddress" placeholder="<?php echo $row["emailAddress"] ?>"
+                        <td><input type="email" class="form__input" name="emailAddress" placeholder="<?php echo $user["emailAddress"] ?>"
                                 disabled></td>
                     </tr>
                     
