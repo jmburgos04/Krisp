@@ -7,7 +7,7 @@ $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
-echo "<script>console.log(" . $row["firstName"] . ")</script>";
+// echo "<script>console.log(" . $row["firstName"] . ")</script>";
 // $user = $row;
 // echo "<script>console.log(" . $user["firstName"] . ")</script>";
 
