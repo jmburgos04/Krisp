@@ -1,3 +1,14 @@
+<?php
+include("src/connect.php");
+session_start();
+
+$emailAddress = $_SESSION["email"];
+$query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
+$conn = OpenConnection();   
+$result = mysqli_query($conn, $query);
+$row = $result->fetch_assoc();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,23 +32,23 @@
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> First Name</th>
-                        <td><input type="text" class="form__input" name="fName" placeholder="First Name"></td>
+                        <td><input type="text" class="form__input" name="fName" placeholder="<?php echo $row["firstName"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> Last Name</th>
-                        <td><input type="text" class="form__input" name="fName" placeholder="Last Name"></td>
+                        <td><input type="text" class="form__input" name="fName" placeholder="<?php echo $row["lastName"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile Number</th>
-                        <td><input type="tel" class="form__input" name="fName" placeholder="Mobile Number"></td>
+                        <td><input type="tel" class="form__input" name="fName" placeholder="<?php echo $row["mobileNumber"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-envelope"></i> Email Address</th>
-                        <td><input type="email" class="form__input" name="fName" placeholder="pikuradezu@gmail.com"
+                        <td><input type="email" class="form__input" name="fName" placeholder="<?php echo $row["emailAddress"] ?>"
                                 disabled></td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-key"></i> Password</th>
+                        <th><i class="bi bi-key"></i> Password </th>
                         <td>
                             <input type="password" class="form__input" name="password"
                                 placeholder="Password (leave empty to keep old password)">

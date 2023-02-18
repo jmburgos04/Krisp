@@ -2,6 +2,13 @@
 <html lang="en">
 <?php
 include("src/connect.php");
+session_start();
+
+$emailAddress = $_SESSION["email"];
+$query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
+$conn = OpenConnection();   
+$result = mysqli_query($conn, $query);
+$row = $result->fetch_assoc();
 ?>
 
 <head>
@@ -741,7 +748,7 @@ include("src/connect.php");
         <div class="sub-menu">
           <div class="user-info">
             <img src="https://static.thenounproject.com/png/638636-200.png" alt="">
-            <h3>Customer Name</h3>
+            <h3><?php echo $row["firstName"] ?></h3>
           </div>
           <hr>
 
