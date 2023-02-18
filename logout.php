@@ -1,9 +1,8 @@
 <?php 
-include("src/connect.php");
 
-
+session_start();
 session_destroy();
-unset($_SESSION['email']);
 
-header("location: profile.php");
+
+header("location: SignIn.php");
 ?>
