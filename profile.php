@@ -2,17 +2,12 @@
 include("src/connect.php");
 session_start();
 
-echo "<script>console.log('Debug Objects: " . $_SESSION["email"] . "' );</script>";
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
-echo "<script>console.log('Debug Objects: " . $row["email"] . "' );</script>";
-echo "<script>console.log('Debug Objects: " . $row["firstName"] . "' );</script>";
-echo "<script>console.log('Debug Objects: " . $row["lastName"] . "' );</script>";
-echo "<script>console.log('Debug Objects: " . $row["mobileNumber"] . "' );</script>";
-echo "<script>console.log('Debug Objects: " . $row["user_id"] . "' );</script>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,19 +32,19 @@ echo "<script>console.log('Debug Objects: " . $row["user_id"] . "' );</script>";
             </tr>
             <tr>
                 <th><i class="bi bi-person-square"></i> First Name</th>
-                <td>Karl Given</td>
+                <td><?php echo $row["firstName"] ?></td>
             </tr>
             <tr>
                 <th><i class="bi bi-person-square"></i> Last Name</th>
-                <td>Reginaldo</td>
+                <td><?php echo $row["lastName"] ?></td>
             </tr>
             <tr>
                 <th><i class="bi bi-phone"></i> Mobile Number</th>
-                <td>09202785587</td>
+                <td><?php echo $row["mobileNumber"] ?></td>
             </tr>
             <tr>
                 <th><i class="bi bi-envelope"></i> Email Address</th>
-                <td>pikuradezu@gmail.com</td>
+                <td><?php echo $row["emailAddress"] ?></td>
             </tr>
         </table>
         <div class="col-md-8 container-button">
