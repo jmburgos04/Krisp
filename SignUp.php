@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $error_message = "";
         include("src/connect.php");
         include("src/functions.php");
 
@@ -20,10 +21,9 @@
                     $result = mysqli_query($conn, $query);
                     header("Location: SignIn.php");
                 } catch(Exception $e) {
-                    $error_message = "Saving failed";
+                    $error_message = "Email is taken";
                 }
                 
-                die;
             } else {
                 header("Location: SignUp.php?error=invalid");
             }
@@ -53,11 +53,6 @@
             <div class="form__input-group">
                 <input type="text" id="signupUsername" name="firstName" class="form__input" autofocus placeholder="First Name">
                 <div class="form__input-error-message">
-                    <?php
-                        if (isset($error_message)) {
-                            echo $error_message;
-                        }
-                    ?>
                 </div>
             </div>
             <div class="form__input-group">
@@ -70,7 +65,13 @@
             </div>
             <div class="form__input-group">
                 <input type="email" id="signupEmail" name="emailAddress" class="form__input" autofocus placeholder="Email Address">
-                <div class="form__input-error-message"></div>
+                <div class="form__input-error-message">
+                <?php
+                        if (isset($error_message)) {
+                            echo $error_message;
+                        }
+                    ?>
+                </div>
             </div>
             <div class="form__input-group">
                 <input type="password" name="password" class="form__input" autofocus placeholder="Password">
