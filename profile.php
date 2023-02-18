@@ -2,7 +2,10 @@
 include("src/connect.php");
 session_start();
 
-echo "<script>console.log('Debug Objects: " . $_SESSION["email"] . "' );</script>"
+echo "<script>console.log('Debug Objects: " . $_SESSION["email"] . "' );</script>";
+$query = "SELECT * from users WHERE emailAddress = $_SESSION["email"]";
+$conn = OpenConnection();   
+$result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
