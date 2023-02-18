@@ -1,6 +1,9 @@
 <?php
     session_start();
-    $error_message = "";
+    
+        if (isset($error_message)) {
+            $error_message = "";
+        }
         include("src/connect.php");
         include("src/functions.php");
 
