@@ -45,15 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> First Name</th>
-                        <td><input type="text" class="form__input" name="firstName" placeholder="<?php echo $row["firstName"] ?>" ></td>
+
+                        <td><input type="text" class="form__input" name="firstName" placeholder="<?php echo $row["firstName"] ?>" required ></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> Last Name</th>
-                        <td><input type="text" class="form__input" name="lastName" placeholder="<?php echo $row["lastName"] ?>" ></td>
+                        <td><input type="text" class="form__input" name="lastName" placeholder="<?php echo $row["lastName"] ?>" required></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile Number</th>
-                        <td><input type="tel" class="form__input" name="mobileNumber" placeholder="<?php echo $row["mobileNumber"] ?>" ></td>
+                        <td><input type="tel" class="form__input" name="mobileNumber" placeholder="<?php echo $row["mobileNumber"] ?>"required ></td>
+
                     </tr>
                     <tr>
                         <th><i class="bi bi-envelope"></i> Email Address</th>
