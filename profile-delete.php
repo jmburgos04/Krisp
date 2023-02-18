@@ -1,7 +1,9 @@
 <?php
 include("src/connect.php");
 session_start();
-
+if(!isset($_SESSION["email"])) {
+    header("Location: SignIn.php");
+}
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
