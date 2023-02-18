@@ -8,6 +8,17 @@ $conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $mobileNumber = $_POST['mobileNumber'];
+
+    $query = "UPDATE `users` SET `firstName` = '$firstName', `lastName` = '$lastName' , `mobileNumber` = '$mobileNumber' WHERE `users`.`emailAddress` = '$emailAddress'";
+    $result = mysqli_query($conn, $query);
+    
+
+} 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,36 +43,22 @@ $row = $result->fetch_assoc();
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> First Name</th>
-                        <td><input type="text" class="form__input" name="fName" placeholder="<?php echo $row["firstName"] ?>"></td>
+                        <td><input type="text" class="form__input" name="firstName" placeholder="<?php echo $row["firstName"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-person-square"></i> Last Name</th>
-                        <td><input type="text" class="form__input" name="fName" placeholder="<?php echo $row["lastName"] ?>"></td>
+                        <td><input type="text" class="form__input" name="lastName" placeholder="<?php echo $row["lastName"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile Number</th>
-                        <td><input type="tel" class="form__input" name="fName" placeholder="<?php echo $row["mobileNumber"] ?>"></td>
+                        <td><input type="tel" class="form__input" name="mobileNumber" placeholder="<?php echo $row["mobileNumber"] ?>"></td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-envelope"></i> Email Address</th>
-                        <td><input type="email" class="form__input" name="fName" placeholder="<?php echo $row["emailAddress"] ?>"
+                        <td><input type="email" class="form__input" name="emailAddress" placeholder="<?php echo $row["emailAddress"] ?>"
                                 disabled></td>
                     </tr>
-                    <tr>
-                        <th><i class="bi bi-key"></i> Password </th>
-                        <td>
-                            <input type="password" class="form__input" name="password"
-                                placeholder="Password (leave empty to keep old password)">
-                            <div><small class="js-error js-error-password text-danger"></small></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-key-fill"></i> Retype Password</th>
-                        <td>
-                            <input type="password" class="form__input" name="retype_password"
-                                placeholder="Retype Password">
-                        </td>
-                    </tr>
+                    
                 </table>
                 <div class="p-2">
                     <button class="btn btn-primary float-end">Save</button>
