@@ -3,10 +3,10 @@
 <?php
 include("src/connect.php");
 session_start();
-
 if(!isset($_SESSION["email"])) {
-  header("Location: SignIn.php");
+    header("Location: SignIn.php");
 }
+
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
@@ -759,7 +759,7 @@ $row = $result->fetch_assoc();
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png">
             <p>Settings</p>
           </a>
-          <a href="index.html" class="sub-menu-link">
+          <a href="logout.php" class="sub-menu-link">
             <img src="https://cdn-icons-png.flaticon.com/512/56/56805.png">
             <p>Logout</p>
           </a>

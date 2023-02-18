@@ -1,13 +1,14 @@
 <?php
 include("src/connect.php");
 session_start();
-if(!isset($_SESSION["email"])) {
-    header("Location: SignIn.php");
+
+if (!isset($_SESSION["email"])) {
+    header("location: SignIn.php");
 }
 
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
-$conn = OpenConnection();   
+$conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 
@@ -16,7 +17,7 @@ $row = $result->fetch_assoc();
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,31 +36,37 @@ $row = $result->fetch_assoc();
             </tr>
             <tr>
                 <th><i class="bi bi-person-square"></i> First Name</th>
-                <td><?php echo $row["firstName"] ?></td>
+                <td>
+                    <?php echo $row["firstName"] ?>
+                </td>
             </tr>
             <tr>
                 <th><i class="bi bi-person-square"></i> Last Name</th>
-                <td><?php echo $row["lastName"] ?></td>
+                <td>
+                    <?php echo $row["lastName"] ?>
+                </td>
             </tr>
             <tr>
                 <th><i class="bi bi-phone"></i> Mobile Number</th>
-                <td><?php echo $row["mobileNumber"] ?></td>
+                <td>
+                    <?php echo $row["mobileNumber"] ?>
+                </td>
             </tr>
             <tr>
                 <th><i class="bi bi-envelope"></i> Email Address</th>
-                <td><?php echo $row["emailAddress"] ?></td>
-            </tr>
+                <td>
+                    <?php echo $row["emailAddress"] ?>
+                </td>
+</tr>
         </table>
-        <div class="col-md-8 container-button">
-            <a href="profile-edit.php">
-                <button class="form__button m-1">Edit</button>
-            </a>
+        <div class="p-2">
             <a href="profile-delete.php">
-                <button class="form__button m-1">Delete</button>
+            <button class="btn btn-danger float-end">Delete</button>
+</a>
+            <a href="profile-edit.php">
+                <label type="button" class="btn btn-primary">Edit</label>
             </a>
-            <a href="SignIn.php">
-                <button class="form__button m-1">Logout</button>
-            </a>
+
         </div>
 
     </div>
