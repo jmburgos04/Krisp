@@ -18,7 +18,9 @@
             if(!empty($firstName) && !empty($lastName) && !empty($mobileNumber) && ($emailAddress) && !empty($password))
             {   
                 $user_id = random_num(20);
-                $query = "INSERT into users (user_id, firstName, lastName, mobileNumber, emailAddress, password) VALUES ('$user_id', '$firstName', '$lastName', '$mobileNumber', '$emailAddress', '$password')";
+                $encrypted_password = openssl_encrypt($password, "AES-128-CTR",
+                "sampleKey", 0, '1234567891011121');
+                $query = "INSERT into users (user_id, firstName, lastName, mobileNumber, emailAddress, password) VALUES ('$user_id', '$firstName', '$lastName', '$mobileNumber', '$emailAddress', '$encrypted_password')";
                 $conn = OpenConnection();
                 try {
                     $result = mysqli_query($conn, $query);

@@ -7,6 +7,9 @@ function login()
     $emailAddress = $_POST['email'];
     $password = $_POST['password'];
 
+    $encrypted_password = openssl_encrypt($password, "AES-128-CTR",
+                "sampleKey", 0, '1234567891011121');
+
     $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
     $conn = OpenConnection();
     $result = mysqli_query($conn, $query);
@@ -19,7 +22,7 @@ function login()
     }
 
     $row = $result->fetch_assoc();
-    if ($row['password'] != $password) {
+    if ($row['password'] != $encrypted_password) {
         
         return;
     }
