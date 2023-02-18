@@ -72,7 +72,7 @@
                 <?php
                         if (isset($error_message)) {
                             echo $error_message;
-                        }
+                        } else echo "";
                     ?>
                 </div>
             </div>
