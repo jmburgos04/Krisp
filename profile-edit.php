@@ -7,7 +7,8 @@ $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
-$user = clone $row;
+echo "<script>console.log(" . $row["firstName"] . ")</script>";
+$user = $row;
 echo "<script>console.log(" . $user["firstName"] . ")</script>";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
