@@ -2,7 +2,7 @@
     session_start();
     
         if (isset($error_message)) {
-            $error_message = "";
+            unset($error_message);
         }
         include("src/connect.php");
         include("src/functions.php");
