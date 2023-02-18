@@ -3,9 +3,16 @@ include("src/connect.php");
 session_start();
 
 echo "<script>console.log('Debug Objects: " . $_SESSION["email"] . "' );</script>";
-$query = "SELECT * from users WHERE emailAddress = $_SESSION["email"]";
+$emailAddress = $_SESSION["email"];
+$query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
 $conn = OpenConnection();   
 $result = mysqli_query($conn, $query);
+$row = $result->fetch_assoc();
+echo "<script>console.log('Debug Objects: " . $row["email"] . "' );</script>";
+echo "<script>console.log('Debug Objects: " . $row["firstName"] . "' );</script>";
+echo "<script>console.log('Debug Objects: " . $row["lastName"] . "' );</script>";
+echo "<script>console.log('Debug Objects: " . $row["mobileNumber"] . "' );</script>";
+echo "<script>console.log('Debug Objects: " . $row["user_id"] . "' );</script>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
