@@ -1,4 +1,5 @@
 <?php
+include("src/connect.php");
 session_start();
 
 echo "<script>console.log('Debug Objects: " . $_SESSION["email"] . "' );</script>"
