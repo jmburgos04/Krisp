@@ -2,28 +2,33 @@
 include("src/connect.php");
 session_start();
 
-if(!isset($_SESSION["email"])) {
+if (!isset($_SESSION["email"])) {
     header("Location: SignIn.php");
 }
 
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
-$conn = OpenConnection();   
+$conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $mobileNumber = $_POST['mobileNumber'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $password = $_POST['password'];
+    $retype_password = $_POST['retype_password'];
 
-    $query = "UPDATE `users` SET `firstName` = '$firstName', `lastName` = '$lastName' , `mobileNumber` = '$mobileNumber' WHERE `users`.`emailAddress` = '$emailAddress'";
-    $result = mysqli_query($conn, $query);
-    if ($result) {
-        header("location: profile.php");
+    if ($retype_password == $password) {
+
+        $encrypted_password = openssl_encrypt($password, "AES-128-CTR",
+                "sampleKey", 0, '1234567891011121');
+        $query = "UPDATE `users` SET `password` = '$encrypted_password' WHERE `users`.`emailAddress` = '$emailAddress'";
+        $result = mysqli_query($conn, $query);
+        if ($result) {
+            header("location: profile.php");
+        }
+    } else {
+        $error_message = "Your password does not match!";
     }
-
-} 
+}
 
 ?>
 <!DOCTYPE html>
@@ -40,43 +45,44 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 
 <body>
-        <div class="col-md-8">
-            <div class="h2 form__title">Edit Profile</div>
-            <form method="post" class="form">
-                <table class="container table table-striped">
-                    <tr>
-                        <th colspan="2">User Details:</th>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-person-square"></i> First Name</th>
+    <div class="col-md-8">
+        <div class="h2 form__title">Edit Profile</div>
+        <form method="post" class="form">
+            <table class="container table table-striped">
+                <tr>
+                    <th colspan="2">User Password Details:</th>
+                </tr>
+                <tr>
+                <tr>
+                    <th><i class="bi bi-key"></i> Password</th>
+                    <td>
+                        <input type="password" class="form-control" name="password"
+                            placeholder="Password (leave empty to keep old password)" required>
+                        <div><small class="js-error js-error-password text-danger">
+                            <?php
+                        if (isset($error_message)) {
+                            echo $error_message;
+                        } else echo "";
+                    ?></small></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="bi bi-key-fill"></i> Retype Password</th>
+                    <td>
+                        <input type="password" class="form-control" name="retype_password"
+                            placeholder="Retype Password" required>
+                    </td>
+                </tr>
+            </table>
+            <div class="p-2">
+                <button class="btn btn-primary float-end">Save</button>
+                <a href="profile-edit.php">
+                    <label type="button" class="btn btn-secondary">Back</label>
+                </a>
+            </div>
 
-                        <td><input type="text" class="form__input" name="firstName" placeholder="<?php echo $row["firstName"] ?>" required ></td>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-person-square"></i> Last Name</th>
-                        <td><input type="text" class="form__input" name="lastName" placeholder="<?php echo $row["lastName"] ?>" required></td>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-phone"></i> Mobile Number</th>
-                        <td><input type="tel" class="form__input" name="mobileNumber" placeholder="<?php echo $row["mobileNumber"] ?>"required ></td>
-
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-envelope"></i> Email Address</th>
-                        <td><input type="email" class="form__input" name="emailAddress" placeholder="<?php echo $row["emailAddress"] ?>"
-                                disabled></td>
-                    </tr>
-                    
-                </table>
-                <div class="p-2">
-                    <button class="btn btn-primary float-end">Save</button>
-                    <a href="profile.php">
-                        <label type="button" class="btn btn-secondary">Back</label>
-                    </a>
-                </div>
-
-        </div>
-        </form>
+    </div>
+    </form>
     </div>
 </body>
 

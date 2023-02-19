@@ -73,6 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                     <a href="profile.php">
                         <label type="button" class="btn btn-secondary">Back</label>
                     </a>
+                    <a href="profile-password.php">
+                <label type="button" class="btn btn-primary">Change Password</label>
+            </a>
                 </div>
 
         </div>

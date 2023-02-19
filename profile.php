@@ -57,16 +57,18 @@ $row = $result->fetch_assoc();
                 <td>
                     <?php echo $row["emailAddress"] ?>
                 </td>
-</tr>
+            </tr>
         </table>
         <div class="p-2">
             <a href="profile-delete.php">
-            <button class="btn btn-danger float-end">Delete</button>
-</a>
+                <button class="btn btn-danger float-end">Delete</button>
+            </a>
+            <a href="order.php">
+                <label type="button" class="btn btn-secondary">Back</label>
+            </a>
             <a href="profile-edit.php">
                 <label type="button" class="btn btn-primary">Edit</label>
             </a>
-
         </div>
 
     </div>

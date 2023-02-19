@@ -22,6 +22,7 @@
                 "sampleKey", 0, '1234567891011121');
                 $query = "INSERT into users (user_id, firstName, lastName, mobileNumber, emailAddress, password) VALUES ('$user_id', '$firstName', '$lastName', '$mobileNumber', '$emailAddress', '$encrypted_password')";
                 $conn = OpenConnection();
+
                 try {
                     $result = mysqli_query($conn, $query);
                     header("Location: SignIn.php");
@@ -56,12 +57,12 @@
             <h1 class="form__title">Create Account</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" id="signupUsername" name="firstName" class="form__input" autofocus placeholder="First Name">
+                <input type="text" id="signupfirstName" name="firstName" class="form__input" autofocus placeholder="First Name">
                 <div class="form__input-error-message">
                 </div>
             </div>
             <div class="form__input-group">
-                <input type="text" id="signupUsername" name="lastName" class="form__input" autofocus placeholder="Last Name">
+                <input type="text" id="signupLastName" name="lastName" class="form__input" autofocus placeholder="Last Name">
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
