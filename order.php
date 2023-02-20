@@ -848,9 +848,11 @@ $row = $result->fetch_assoc();
       </div>
       <!-- bundle 2 -->
       <div data-id="2" class="card-item">
-        <img src= <?php
+      <img src= <?php
                 $query = "SELECT * FROM food WHERE id = 2";
+                $conn = OpenConnection();
                 $result = executeQuery($query);
+
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '"' . $row['foodImg']. '"';
                 }
@@ -858,7 +860,9 @@ $row = $result->fetch_assoc();
         <div class="details">
           <h3><?php
                 $query = "SELECT * FROM food WHERE id = 2";
+                $conn = OpenConnection();
                 $result = executeQuery($query);
+
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo $row['foodName'];
                 }
@@ -866,7 +870,9 @@ $row = $result->fetch_assoc();
           <p>
             <span><?php
                 $query = "SELECT * FROM food WHERE id = 2";
+                $conn = OpenConnection();
                 $result = executeQuery($query);
+
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo $row['foodDescription'];
                 }
@@ -874,7 +880,9 @@ $row = $result->fetch_assoc();
 
             <span class="price"><?php
                 $query = "SELECT * FROM food WHERE id = 2";
+                $conn = OpenConnection();
                 $result = executeQuery($query);
+
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo $row['foodPrice'];
                 }

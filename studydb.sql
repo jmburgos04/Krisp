@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 09:43 AM
+-- Generation Time: Feb 20, 2023 at 11:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -40,17 +40,17 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `foodName`, `foodDescription`, `foodPrice`, `foodImg`) VALUES
-(1, 'Krispy Kart', '3pcs Buffalo/Spicy Krisp + Monster Krisp Burger + Krunch Fries', '₱ 270.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(1).png'),
-(2, 'Krispy Ala Carte', '6pcs Buffalo/Spicy Krisp + Krunch Fries', '₱185.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(2).png'),
-(3, 'Krisp Burger', 'Regular Burger', '₱ 49.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/Untitled-1.png'),
-(4, 'Monster Krisp Burger', 'Double Patty Burger', '₱ 95.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/burger3.png'),
-(5, 'Overload Krisp Burger', 'Double Patty Burger And Krunch Fries', '₱ 130.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(4).png'),
-(6, 'Krunch Fries', 'Regular French Fries', '₱ 49.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/burger2%20(1).png'),
-(7, 'Buffalo Krisp', 'Classic Buffalo Wings', '₱ 120.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings.png'),
-(8, 'Spicy Krisp', 'Crispy Wings In Chili Sauce', '₱ 130.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(3).png'),
-(9, 'Krisp Donut', 'Classic Sugar Glazed Doughnut', '₱ 39.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/donut.png'),
-(10, 'CooKrisp', 'Crunchy And Chewy Chocolate Cookies', '₱ 85.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/cookies.png'),
-(11, 'NachoKrisp', 'Crispy Nachos With Cheese Sauce', '₱ 75.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/nachos.png');
+(1, 'Krispy Kart', '3pcs Buffalo/Spicy Krisp + Monster Krisp Burger + Krunch Fries', '₱ 270.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(1).png?'),
+(2, 'Krispy Ala Carte', '6pcs Buffalo/Spicy Krisp + Krunch Fries', '₱ 185.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(2).png?'),
+(3, 'Krisp Burger', 'Regular Burger', '₱ 49.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/burger2.png?'),
+(4, 'Monster Krisp Burger', 'Double Patty Burger', '₱ 95.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/burger3.png?'),
+(5, 'Overload Krisp Burger', 'Double Patty Burger And Krunch Fries', '₱ 130.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(4).png?'),
+(6, 'Krunch Fries', 'Regular French Fries', '₱ 49.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/burger2%20(1).png?'),
+(7, 'Buffalo Krisp', 'Classic Buffalo Wings', '₱ 120.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings.png?'),
+(8, 'Spicy Krisp', 'Crispy Wings In Chili Sauce', '₱ 130.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/wings%20(3).png?'),
+(9, 'Krisp Donut', 'Classic Sugar Glazed Doughnut', '₱ 39.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/donut.png?'),
+(10, 'CooKrisp', 'Crunchy And Chewy Chocolate Cookies', '₱ 85.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/cookies.png?'),
+(11, 'NachoKrisp', 'Crispy Nachos With Cheese Sauce', '₱ 75.00', 'https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/nachos.png?');
 
 -- --------------------------------------------------------
 
@@ -67,6 +67,14 @@ CREATE TABLE `users` (
   `emailAddress` varchar(1000) NOT NULL,
   `password` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `mobileNumber`, `emailAddress`, `password`) VALUES
+(13, 62543234309400355, 'Takoyaki', '2 pesos', '09202785587', '123123@gmail.com', '1zxF5Binug=='),
+(14, 66586992257923087, 'Matthew', 'Brugos', '09194626786', 'boybalita10@gmail.com', 'yjJa9R2tow==');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +108,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
