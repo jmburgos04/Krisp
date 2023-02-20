@@ -16,14 +16,12 @@ function login()
 
 
     if (mysqli_num_rows($result) < 1) {
-        // put code to display "no user found"//
-        echo "<script>console.log('No entry found');</script>";
+        $error_message = "Invalid username/password combination";
         return;
     }
 
     $row = $result->fetch_assoc();
     if ($row['password'] != $encrypted_password) {
-        
         return;
     }
 
@@ -59,7 +57,11 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <form method="post" action="">
             <h1 class="form__title">Login</h1>
-            <div class="form__message form__message--error"></div>
+            <div class="form__message form__message--error"><?php
+                        if (isset($error_message)) {
+                            echo $error_message;
+                        } else echo "";
+                    ?></div>
             <div class="form__input-group">
                 <input type="text" name="email" class="form__input" placeholder="Email">
                 <div class="form__input-error-message"></div>

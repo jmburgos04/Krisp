@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2023 at 03:30 PM
+-- Generation Time: Feb 20, 2023 at 09:36 AM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,7 +74,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `mobileNumber`, `emailAddress`, `password`) VALUES
 (1, 669980678545, 'Karl Given', 'Reginaldo', '2147483647', 'pikuradezu@gmail.com', 'hahatesting'),
-(8, 267029705354, 'asdf', 'asdf', '09454773754', 'boybalita10@gmail.com', 'xiBK5w==');
+(8, 267029705354, 'asdf', 'asdf', '09454773754', 'boybalita10@gmail.com', 'xiBK5w=='),
+(9, 37320682740, 'Jek', 'Burgos', '09123582912', 'angelcutie@gmail.com', 'lmEdtUA='),
+(11, 746493654230343, 'Allen', 'Montalban', '09191232323', 'sojubae@gmail.com', 'lmEdtUD+');
 
 --
 -- Indexes for dumped tables
@@ -108,7 +110,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
