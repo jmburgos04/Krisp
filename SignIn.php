@@ -71,9 +71,6 @@ if (isset($_POST['submit'])) {
                 <div class="form__input-error-message"></div>
             </div>
             <input type="submit" value="Submit" name="submit" class="form__button">
-            <p class="form__text">
-                <a href="#" class="form__link">Forgot your password?</a>
-            </p>
             <p class="form__text">Don't have an account?
                 <a href="SignUp.php" class="form__link">Create account</a>
             </p>
