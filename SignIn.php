@@ -28,7 +28,7 @@ function login()
     session_start();
     $_SESSION["email"] = $emailAddress;
 
-    header("location: order.php");
+    header("location: index-user.php");
 
 }
 

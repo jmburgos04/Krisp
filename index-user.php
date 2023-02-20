@@ -1,3 +1,19 @@
+<?php
+include ("src/connect.php");
+
+session_start();
+if(!isset($_SESSION["email"])) {
+    header("Location: index-guest.php");
+}
+
+$emailAddress = $_SESSION["email"];
+$query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
+$conn = OpenConnection();   
+$result = mysqli_query($conn, $query);
+$row = $result->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -856,7 +872,7 @@
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="https://static.thenounproject.com/png/638636-200.png" alt="">
-                    <h3>Customer Name</h3>
+                    <h3><?php echo $row["firstName"] ?></h3>
                 </div>
                 <hr>
 
@@ -864,7 +880,7 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png">
                     <p>Settings</p>
                 </a>
-                <a href="index-user.php" class="sub-menu-link">
+                <a href="logout.php" class="sub-menu-link">
                     <img src="https://cdn-icons-png.flaticon.com/512/56/56805.png">
                     <p>Logout</p>
                 </a>

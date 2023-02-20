@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION["email"])) {
-    header("Location: SignIn.php");
+
+if(isset($_SESSION["email"])) {
+    header("Location: index-user.php");
 }
 
 ?>
