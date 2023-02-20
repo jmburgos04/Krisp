@@ -21,10 +21,10 @@ $row = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="profile.css">
-    <title>Edit</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Krisp</title>
 </head>
 
 <body>
@@ -63,7 +63,7 @@ $row = $result->fetch_assoc();
             <a href="profile-delete.php">
                 <button class="btn btn-danger float-end">Delete</button>
             </a>
-            <a href="order.php">
+            <a href="index-user.php">
                 <label type="button" class="btn btn-secondary">Back</label>
             </a>
             <a href="profile-edit.php">

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 include("src/connect.php");
 session_start();
@@ -13,6 +11,9 @@ $conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -736,16 +737,16 @@ $row = $result->fetch_assoc();
 
   <header>
 
-    <a href="index.html" class="logo">
+    <a href="index-user.php" class="logo">
       <img src="https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/Logo.png">
     </a>
 
     <div id="menu-bar" class="fas fa-bars"></div>
 
     <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="order.html">Order</a>
+      <a href="index-user.php">Home</a>
+      <a href="about-user.php">About</a>
+      <a href="order.php">Order</a>
 
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
@@ -783,7 +784,7 @@ $row = $result->fetch_assoc();
           <div class="cart-wrapper">
           </div>
           <div class="subtotal">Subtotal: ₱0.00</div>
-          <a href="ticket.html">
+          <a href="ticket.php">
             <div class="checkout">Checkout</div>
           </a>
         </div>
@@ -1233,11 +1234,11 @@ $row = $result->fetch_assoc();
       <h3>KRISP</h3>
 
       <p class="footer-links">
-        <a href="index.html" class="link-1">Home</a>
+        <a href="index-user.php" class="link-1">Home</a>
 
-        <a href="about.html">About</a>
+        <a href="about-user.php">About</a>
 
-        <a href="order.html">Order</a>
+        <a href="order.php">Order</a>
       </p>
 
       <p class="footer-company-name">©2023 Ghost Restaurant, BSIT 3-1 (Group 3). All rights reserved.</p>
@@ -1265,7 +1266,7 @@ $row = $result->fetch_assoc();
     <div class="footer-right">
 
       <p class="footer-company-about">
-        <a href="#" class="logo">
+        <a href="about-user.php" class="logo">
           <img src="https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/krkazylogo.png">
         </a>
       </p>

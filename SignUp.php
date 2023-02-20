@@ -47,8 +47,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-    <title>login</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Krisp</title>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
             </p>
         </form>
     </div>
-    <script src="src/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
