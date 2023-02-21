@@ -784,7 +784,7 @@ $row = $result->fetch_assoc();
           <div class="cart-wrapper">
           </div>
           <div class="subtotal">Subtotal: ₱0.00</div>
-          <a href="ticket.php">
+          <a id = "checkoutbutton" href="ticket.php">
             <div class="checkout" onclick="deleteItems()">Checkout</div>
           </a>
         </div>
@@ -1298,7 +1298,7 @@ $row = $result->fetch_assoc();
     localStorage.clear();
   }
 
-  document.querySelector('.checkout').style.display = 'none';
+  
   document.querySelector('.add-to-cart-btn').addEventListener('click', showBtn);
 
   function showBtn(e) {
@@ -1458,6 +1458,7 @@ $row = $result->fetch_assoc();
       })
       cartWrapper.append(cartItem)
     }
+    var checkoutbutton = document.getElementById('checkoutbutton')
 
     if (count > 0) {
       cartIcon.classList.add('non-empty')
@@ -1465,10 +1466,15 @@ $row = $result->fetch_assoc();
       root.style.setProperty('--after-content', `"${count}"`)
       const subtotal = document.querySelector('.subtotal')
       subtotal.innerHTML = `SubTotal: ₱ ${total}`
+      checkoutbutton.style.display = 'block'
     }
-    else
+    else {
       cartIcon.classList.remove('non-empty')
+      checkoutbutton.style.display = 'none'
+    }
+      
   }
+
   document.addEventListener('DOMContentLoaded', () => { updateCartUI() })
 
 

@@ -16,8 +16,8 @@ function login()
 
 
     if (mysqli_num_rows($result) < 1) {
-        $error_message = "Invalid username/password combination";
-        return;
+        
+        header("Location: SignIn.php?error_message");
     }
 
     $row = $result->fetch_assoc();
@@ -58,9 +58,9 @@ if (isset($_POST['submit'])) {
         <form method="post" action="">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"><?php
-                        if (isset($error_message)) {
-                            echo $error_message;
-                        } else echo "";
+                        if (isset($_GET['error_message'])) {
+                            echo " Invalid username/password combination ";
+                        } 
                     ?></div>
             <div class="form__input-group">
                 <input type="text" name="email" class="form__input" placeholder="Email">
