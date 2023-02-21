@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION["email"])) {
+if (isset($_SESSION["email"])) {
     header("Location: about-user.php");
 }
 
@@ -1198,16 +1198,16 @@ if(isset($_SESSION["email"])) {
                     <h3>Allen Montablan</h3>
                     <p id="small-margin-btm">Front-End Developer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/llnmntbln">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/llnmntbln/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/allen.montablan.1">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:montablanallen@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1223,16 +1223,16 @@ if(isset($_SESSION["email"])) {
                     <h3>Vergel Reaño</h3>
                     <p>Graphic Designer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/fate_211 ">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/beeejay__/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/profile.php?id=100000637231738">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:reanovj@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1241,21 +1241,21 @@ if(isset($_SESSION["email"])) {
             <div class="column">
                 <div class="card">
                     <div class="img-container">
-                        <img src="https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/DSC_0097.jpg"/>
+                        <img src="https://raw.githubusercontent.com/llnmmntbln/Web-Dev/main/DSC_0097.jpg" />
                     </div>
                     <h3>Glenise Baldeo</h3>
                     <p>Graphic Designer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://www.twitter.com/messeeine">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/messeeine">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/messeeine">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:glenisebaldeo@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1270,16 +1270,16 @@ if(isset($_SESSION["email"])) {
                     <h3>Karl Reginaldo</h3>
                     <p>Full-Stack Developer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/GivenStockImage">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/givenreginaldo/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/SansSansYikes">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:reginaldokarlgiven@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1294,16 +1294,16 @@ if(isset($_SESSION["email"])) {
                     <h3>Matthew Burgos</h3>
                     <p>Back-End Developer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/MasterBlade26">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/matthew100401/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/burgos.matthew/">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:jhonmatthewm@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1318,16 +1318,16 @@ if(isset($_SESSION["email"])) {
                     <h3>Makoy Del Rosario</h3>
                     <p>Documentation Specialist</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/arjaymakoy">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/arjaymakoy/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/arjaymakoy12?mibextid=ZbWKwL">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:iarjaydelrosario@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>

@@ -1,14 +1,14 @@
 <?php
-include ("src/connect.php");
+include("src/connect.php");
 
 session_start();
-if(!isset($_SESSION["email"])) {
+if (!isset($_SESSION["email"])) {
     header("Location: about-guest.php");
 }
 
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
-$conn = OpenConnection();   
+$conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 
@@ -1234,7 +1234,9 @@ $row = $result->fetch_assoc();
             <div class="sub-menu">
                 <div class="user-info">
                     <img src="https://static.thenounproject.com/png/638636-200.png" alt="">
-                    <h3><?php echo $row["firstName"] ?></h3>
+                    <h3>
+                        <?php echo $row["firstName"] ?>
+                    </h3>
                 </div>
                 <hr>
 
@@ -1248,11 +1250,11 @@ $row = $result->fetch_assoc();
                 </a>
 
             </div>
-        </div>    
-        
-            <div class="profile-icon">
-                <img src="https://static.thenounproject.com/png/638636-200.png" alt="" onclick="toggleMenu()">
-            </div>
+        </div>
+
+        <div class="profile-icon">
+            <img src="https://static.thenounproject.com/png/638636-200.png" alt="" onclick="toggleMenu()">
+        </div>
     </header>
 
     <div class="heading">
@@ -1296,16 +1298,16 @@ $row = $result->fetch_assoc();
                     <h3>Allen Montablan</h3>
                     <p id="small-margin-btm">Front-End Developer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/llnmntbln">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/llnmntbln/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/allen.montablan.1">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="mailto:montablanallen@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1321,16 +1323,16 @@ $row = $result->fetch_assoc();
                     <h3>Vergel Reaño</h3>
                     <p>Graphic Designer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/fate_211 ">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/beeejay__/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/profile.php?id=100000637231738">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="reanovj@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1344,16 +1346,16 @@ $row = $result->fetch_assoc();
                     <h3>Glenise Baldeo</h3>
                     <p>Graphic Designer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://www.twitter.com/messeeine">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/messeeine">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/messeeine">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="glenisebaldeo@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1368,16 +1370,16 @@ $row = $result->fetch_assoc();
                     <h3>Karl Reginaldo</h3>
                     <p>Full-Stack Developer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/GivenStockImage">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/givenreginaldo/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/SansSansYikes">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="reginaldokarlgiven@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1392,16 +1394,16 @@ $row = $result->fetch_assoc();
                     <h3>Matthew Burgos</h3>
                     <p>Back-End Developer</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/MasterBlade26">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/matthew100401/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/burgos.matthew/">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="jhonmatthewm@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1416,16 +1418,16 @@ $row = $result->fetch_assoc();
                     <h3>Makoy Del Rosario</h3>
                     <p>Documentation Specialist</p>
                     <div class="icons">
-                        <a href="#">
+                        <a href="https://twitter.com/arjaymakoy">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/arjaymakoy/">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://www.facebook.com/arjaymakoy12?mibextid=ZbWKwL">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="iarjaydelrosario@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
