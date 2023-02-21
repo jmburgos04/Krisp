@@ -760,7 +760,7 @@ $row = $result->fetch_assoc();
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png">
             <p>Settings</p>
           </a>
-          <a href="logout.php" class="sub-menu-link">
+          <a href="logout.php" class="sub-menu-link" onclick="deleteItems()">
             <img src="https://cdn-icons-png.flaticon.com/512/56/56805.png">
             <p>Logout</p>
           </a>
@@ -785,7 +785,7 @@ $row = $result->fetch_assoc();
           </div>
           <div class="subtotal">Subtotal: ₱0.00</div>
           <a href="ticket.php">
-            <div class="checkout">Checkout</div>
+            <div class="checkout" onclick="deleteItems()">Checkout</div>
           </a>
         </div>
       </div>
@@ -1294,6 +1294,19 @@ $row = $result->fetch_assoc();
 </body>
 
 <script>
+  function deleteItems() {
+    localStorage.clear();
+  }
+
+  document.querySelector('.checkout').style.display = 'none';
+  document.querySelector('.add-to-cart-btn').addEventListener('click', showBtn);
+
+  function showBtn(e) {
+    document.querySelector('.checkout').style.display = 'block';
+
+    e.preventDefault();
+  }
+
 
   let menu = document.querySelector('#menu-bar');
   let navbar = document.querySelector('.navbar');
@@ -1393,12 +1406,13 @@ $row = $result->fetch_assoc();
   })
 
   cartIcon.addEventListener('mouseleave', () => {
+    if (wholeCartWindow.classList.contains('hide'))
 
-    setTimeout(() => {
-      if (wholeCartWindow.inWindow === 0) {
-        wholeCartWindow.classList.add('hide')
-      }
-    }, 500)
+      setTimeout(() => {
+        if (wholeCartWindow.inWindow === 0) {
+          wholeCartWindow.classList.add('hide')
+        }
+      }, 500)
 
   })
 
@@ -1457,11 +1471,15 @@ $row = $result->fetch_assoc();
   }
   document.addEventListener('DOMContentLoaded', () => { updateCartUI() })
 
+
+
+
   let subMenu = document.getElementById("subMenu");
 
   function toggleMenu() {
     subMenu.classList.toggle("open-menu");
   }
+
 
 </script>
 
