@@ -1,13 +1,13 @@
 <?php
 include("src/connect.php");
 session_start();
-if(!isset($_SESSION["email"])) {
-    header("Location: SignIn.php");
+if (!isset($_SESSION["email"])) {
+  header("Location: SignIn.php");
 }
 
 $emailAddress = $_SESSION["email"];
 $query = "SELECT * from users WHERE emailAddress = '$emailAddress'";
-$conn = OpenConnection();   
+$conn = OpenConnection();
 $result = mysqli_query($conn, $query);
 $row = $result->fetch_assoc();
 ?>
@@ -645,10 +645,6 @@ $row = $result->fetch_assoc();
       width: 93vw;
     }
 
-    .profile-icon img {
-      display: none;
-    }
-
     .whole-cart-window {
       border: solid lightgray 1px;
       left: 10px;
@@ -747,28 +743,30 @@ $row = $result->fetch_assoc();
       <a href="index-user.php">Home</a>
       <a href="about-user.php">About</a>
       <a href="order.php">Order</a>
-
-      <div class="sub-menu-wrap" id="subMenu">
-        <div class="sub-menu">
-          <div class="user-info">
-            <img src="https://static.thenounproject.com/png/638636-200.png" alt="">
-            <h3><?php echo $row["firstName"] ?></h3>
-          </div>
-          <hr>
-
-          <a href="profile.php" class="sub-menu-link">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png">
-            <p>Settings</p>
-          </a>
-          <a href="logout.php" class="sub-menu-link" onclick="deleteItems()">
-            <img src="https://cdn-icons-png.flaticon.com/512/56/56805.png">
-            <p>Logout</p>
-          </a>
-
-        </div>
-      </div>
-
     </nav>
+
+    <div class="sub-menu-wrap" id="subMenu">
+      <div class="sub-menu">
+        <div class="user-info">
+          <img src="https://static.thenounproject.com/png/638636-200.png" alt="">
+          <h3>
+            <?php echo $row["firstName"] ?>
+          </h3>
+        </div>
+        <hr>
+
+        <a href="profile.php" class="sub-menu-link">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png">
+          <p>Settings</p>
+        </a>
+        <a href="logout.php" class="sub-menu-link" onclick="deleteItems()">
+          <img src="https://cdn-icons-png.flaticon.com/512/56/56805.png">
+          <p>Logout</p>
+        </a>
+
+      </div>
+    </div>
+
     <div class="profile-icon">
       <img src="https://static.thenounproject.com/png/638636-200.png" alt="" onclick="toggleMenu()">
     </div>
@@ -784,7 +782,7 @@ $row = $result->fetch_assoc();
           <div class="cart-wrapper">
           </div>
           <div class="subtotal">Subtotal: ₱0.00</div>
-          <a id = "checkoutbutton" href="ticket.php">
+          <a id="checkoutbutton" href="ticket.php">
             <div class="checkout" onclick="deleteItems()">Checkout</div>
           </a>
         </div>
@@ -803,90 +801,102 @@ $row = $result->fetch_assoc();
     <div class="card-wrapper">
       <!-- bundle 1-->
       <div data-id="1" class="card-item">
-        <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 1";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 1";
+        $conn = OpenConnection();
+        $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 1";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 1";
+            $conn = OpenConnection();
+            $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 1";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 1";
+              $conn = OpenConnection();
+              $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 1";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 1";
+              $conn = OpenConnection();
+              $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
       </div>
       <!-- bundle 2 -->
       <div data-id="2" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 2";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 2";
+        $conn = OpenConnection();
+        $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 2";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 2";
+            $conn = OpenConnection();
+            $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 2";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 2";
+              $conn = OpenConnection();
+              $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 2";
-                $conn = OpenConnection();
-                $result = executeQuery($query);
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 2";
+              $conn = OpenConnection();
+              $result = executeQuery($query);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -894,75 +904,87 @@ $row = $result->fetch_assoc();
 
       <!-- product 1 -->
       <div data-id="3" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 3";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 3";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 3";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 3";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 3";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 3";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 3";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 3";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
       </div>
 
-            <!-- product 1 -->
+      <!-- product 1 -->
       <div data-id="3" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 4";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 4";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 4";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 4";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 4";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 4";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 4";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 4";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -970,74 +992,86 @@ $row = $result->fetch_assoc();
 
       <!-- product 2 -->
       <div data-id="4" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 5";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 5";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 5";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 5";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 5";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 5";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 5";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 5";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
       </div>
       <!-- product 3 -->
       <div data-id="5" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 6";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 6";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 6";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 6";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 6";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 6";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 6";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 6";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -1045,37 +1079,43 @@ $row = $result->fetch_assoc();
 
       <!-- product 4 -->
       <div data-id="6" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 7";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 7";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 7";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 7";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 7";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 7";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 7";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 7";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -1083,37 +1123,43 @@ $row = $result->fetch_assoc();
 
       <!-- product 5 -->
       <div data-id="7" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 8";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 8";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 8";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 8";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 8";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 8";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 8";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 8";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -1121,37 +1167,43 @@ $row = $result->fetch_assoc();
 
       <!-- product 6 -->
       <div data-id="8" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 9";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 9";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 9";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 9";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 9";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 9";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 9";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 9";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -1160,74 +1212,86 @@ $row = $result->fetch_assoc();
       <!-- product 7 -->
 
       <div data-id="9" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 10";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 10";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 10";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 10";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 10";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 10";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 10";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 10";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
       </div>
       <!-- product 8 -->
       <div data-id="9" class="card-item">
-      <img src= <?php
-                $query = "SELECT * FROM food WHERE id = 11";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '"' . $row['foodImg']. '"';
-                }
-                ?> />
+        <img src=<?php
+        $query = "SELECT * FROM food WHERE id = 11";
+        $result = executeQuery($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo '"' . $row['foodImg'] . '"';
+        }
+        ?> />
         <div class="details">
-          <h3><?php
-                $query = "SELECT * FROM food WHERE id = 11";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodName'];
-                }
-                ?></h3>
+          <h3>
+            <?php
+            $query = "SELECT * FROM food WHERE id = 11";
+            $result = executeQuery($query);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo $row['foodName'];
+            }
+            ?>
+          </h3>
           <p>
-            <span><?php
-                $query = "SELECT * FROM food WHERE id = 11";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodDescription'];
-                }
-                ?></span>
+            <span>
+              <?php
+              $query = "SELECT * FROM food WHERE id = 11";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodDescription'];
+              }
+              ?>
+            </span>
 
-            <span class="price"><?php
-                $query = "SELECT * FROM food WHERE id = 11";
-                $result = executeQuery($query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo $row['foodPrice'];
-                }
-                ?></span>
+            <span class="price">
+              <?php
+              $query = "SELECT * FROM food WHERE id = 11";
+              $result = executeQuery($query);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo $row['foodPrice'];
+              }
+              ?>
+            </span>
             <span class="add-to-cart-btn">Add To Cart</span>
           </p>
         </div>
@@ -1298,7 +1362,7 @@ $row = $result->fetch_assoc();
     localStorage.clear();
   }
 
-  
+
   document.querySelector('.add-to-cart-btn').addEventListener('click', showBtn);
 
   function showBtn(e) {
@@ -1472,7 +1536,7 @@ $row = $result->fetch_assoc();
       cartIcon.classList.remove('non-empty')
       checkoutbutton.style.display = 'none'
     }
-      
+
   }
 
   document.addEventListener('DOMContentLoaded', () => { updateCartUI() })
