@@ -22,6 +22,7 @@ function login()
 
     $row = $result->fetch_assoc();
     if ($row['password'] != $encrypted_password) {
+        header("Location: SignIn.php?error_message");
         return;
     }
 
