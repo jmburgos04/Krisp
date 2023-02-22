@@ -40,7 +40,6 @@ $row = $result->fetch_assoc();
         outline: none;
         border: none;
         text-decoration: none;
-        text-transform: capitalize;
         transition: all .2s linear;
     }
 
@@ -1272,9 +1271,8 @@ $row = $result->fetch_assoc();
             <h2>Krispyirresistible, flavorsome and mouthwatering foods can now be in front of your door in just a few
                 clicks! Krist fast food provides delicious and irresistible quality meals from our heart to your
                 home.<br><br>
-                Krisp is a fast-food restaurant in virtual nature that offers a hassle-free ordering system and deliver
-                orders anytime. Partnered with multiple delivery services that can reach you anywhere across and around
-                our area of operation.<br><br></h2>
+                Krisp is a website that combines an admin interface that enables the restaurant to accept and process
+                client orders with a menu that consumers can view and order from.<br><br></h2>
 
         </div>
 
@@ -1332,7 +1330,7 @@ $row = $result->fetch_assoc();
                         <a href="https://www.facebook.com/profile.php?id=100000637231738">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="reanovj@gmail.com">
+                        <a href="mailto:reanovj@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1355,7 +1353,7 @@ $row = $result->fetch_assoc();
                         <a href="https://www.facebook.com/messeeine">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="glenisebaldeo@gmail.com">
+                        <a href="mailto:glenisebaldeo@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1379,7 +1377,7 @@ $row = $result->fetch_assoc();
                         <a href="https://www.facebook.com/SansSansYikes">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="reginaldokarlgiven@gmail.com">
+                        <a href="mailto:reginaldokarlgiven@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1403,7 +1401,7 @@ $row = $result->fetch_assoc();
                         <a href="https://www.facebook.com/burgos.matthew/">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="jhonmatthewm@gmail.com">
+                        <a href="mailto:jhonmatthewm@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -1427,7 +1425,7 @@ $row = $result->fetch_assoc();
                         <a href="https://www.facebook.com/arjaymakoy12?mibextid=ZbWKwL">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="iarjaydelrosario@gmail.com">
+                        <a href="mailto:iarjaydelrosario@gmail.com">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
