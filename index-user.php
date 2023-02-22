@@ -29,7 +29,7 @@ $row = $result->fetch_assoc();
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@500&family=Outfit:wght@200;300;500&family=Shadows+Into+Light&display=swap');
-
+italizeitalize
     :root {
         --red: #ff3838;
     }
@@ -42,7 +42,6 @@ $row = $result->fetch_assoc();
         outline: none;
         border: none;
         text-decoration: none;
-        text-transform: capitalize;
         transition: all .2s linear;
     }
 

@@ -1171,8 +1171,7 @@ if (isset($_SESSION["email"])) {
             <h2>Krispyirresistible, flavorsome and mouthwatering foods can now be in front of your door in just a few
                 clicks! Krist fast food provides delicious and irresistible quality meals from our heart to your
                 home.<br><br>
-                Krisp is a website that combines an admin interface that enables the restaurant to accept and process
-                client orders with a menu that consumers can view and order from.<br><br></h2>
+                Partnered with multiple delivery services that can reach you anywhere across and around our area of operation.<br><br></h2>
 
         </div>
 

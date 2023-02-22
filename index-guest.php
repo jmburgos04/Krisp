@@ -32,7 +32,6 @@ if(isset($_SESSION["email"])) {
         outline: none;
         border: none;
         text-decoration: none;
-        text-transform: capitalize;
         transition: all .2s linear;
     }
 
