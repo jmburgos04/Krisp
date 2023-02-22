@@ -63,11 +63,11 @@ if (isset($_POST['submit'])) {
                         } 
                     ?></div>
             <div class="form__input-group">
-                <input type="text" name="email" class="form__input" placeholder="Email">
+                <input type="text" name="email" class="form__input" placeholder="Email" required>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" name="password" class="form__input" placeholder="Password">
+                <input type="password" name="password" class="form__input" placeholder="Password" required>
                 <div class="form__input-error-message"></div>
             </div>
             <input type="submit" value="Submit" name="submit" class="form__button">
