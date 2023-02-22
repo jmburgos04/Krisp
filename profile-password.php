@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <th><i class="bi bi-key"></i> Password</th>
                     <td>
                         <input type="password" class="form-control" name="password"
-                            placeholder="Password (leave empty to keep old password)" required>
+                            placeholder="Password" required>
                         <div><small class="js-error js-error-password text-danger">
                             <?php
                         if (isset($error_message)) {
